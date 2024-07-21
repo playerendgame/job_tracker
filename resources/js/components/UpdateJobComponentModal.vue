@@ -42,6 +42,8 @@
                         <option>Waiting For Feedback</option>
                         <option>Application Seen</option>
                         <option>Scheduled For Interview</option>
+                        <option>Scheduled For Assessment / Exam</option>
+                        <option>Assessment / Exam Done</option>
                         <option>1st Interview Done</option>
                         <option>2nd Interview Done</option>
                         <option>3rd Interview Done</option>
@@ -90,22 +92,23 @@ export default {
     },
     methods: {
         updateForm() {
-            axios.post('/update/jobs/' + this.job.id, this.formData)
-                .then(response => {
+            axios.post('/update/jobs/' + this.job.id, this.job)
+            .then(response => {
                 // handle success response
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Job Updated Successfully!',
-                    icon: 'success',
-                    confirmButtonText: 'Okay'
+                title: 'Success!',
+                text: 'Job Updated Successfully!',
+                icon: 'success',
+                confirmButtonText: 'Okay'
                 })
                 return
-                })
-                .catch(error => {
+            })
+            .catch(error => {
                 // handle error response
                 console.error(error);
-                });
-        }
+            });
+            }
+
     }
 
 }

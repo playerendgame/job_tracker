@@ -32,7 +32,7 @@ class CreateJobsTable extends Migration
             $table->string('job_type');
             $table->string('app_platform');
             $table->string('job_status');
-            $table->string('job_desc');
+            $table->longText('job_desc');
         });
     }
 

@@ -2,7 +2,7 @@
     <div>
         <b-modal id="viewDetails-modal" hide-footer hide-header >
             <header class="pt-2">
-                <span class="h4">Update Job Information</span>
+                <span class="h4">Job Application Details</span>
             </header>
             <hr>
             <div class="row pt-2">
@@ -42,6 +42,8 @@
                         <option>Waiting For Feedback</option>
                         <option>Application Seen</option>
                         <option>Scheduled For Interview</option>
+                        <option>Scheduled For Assessment / Exam</option>
+                        <option>Assessment / Exam Done</option>
                         <option>1st Interview Done</option>
                         <option>2nd Interview Done</option>
                         <option>3rd Interview Done</option>

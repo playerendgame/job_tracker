@@ -48,18 +48,24 @@ class JobsController extends Controller
     {
         $job = Jobs::findOrFail($id);
     
-        if ($job->user_id !== auth()->id()) { // Check if the job belongs to the current user
-            return response()->json(['error' => 'Unauthorized'], 403);
-        }
         foreach ($request->all() as $field => $value) {
             if (!empty($value)) {
                 $job->$field = $value;
             }
         }
-    
         $job->save();
     
         return response()->json(['message' => 'Job updated successfully!']);
+    }
+
+
+    public function delete($id){
+
+        $job = Jobs::findOrFail($id);
+        $job->delete();
+
+        return response()->json(['message' => 'Job Deleted Successfully']);
+
     }
     
     

@@ -1,8 +1,9 @@
 <template>
    <b-modal id="register-modal" title="Register" hide-footer hide-header>
         <header class="pt-2">
-            <span class="h4">Add Job Information</span>
+            <span class="h4">Register</span>
         </header>
+        <hr>
         <div class="row">
             <div class="name-input">
                 <input class="form-control" type="text" placeholder="Enter Name" v-model="name">
@@ -17,7 +18,7 @@
                 <input class="form-control" type="password" placeholder="Confirm Password" v-model="confirmPassword">
             </div>
             <div class="buttons pt-4">
-                <button class="btn btn-success" @click.prevent="submitForm">Sign In</button>
+                <button class="btn btn-success" @click.prevent="submitForm">Sign Up</button>
             </div>
         </div>
     </b-modal>
@@ -64,6 +65,7 @@ export default {
                 this.email = ''
                 this.password = ''
                 this.confirmPassword = ''
+                window.location.reload();
             })
             .catch(error => {
                 Swal.fire({

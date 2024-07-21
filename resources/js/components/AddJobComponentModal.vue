@@ -42,6 +42,8 @@
                         <option>Waiting For Feedback</option>
                         <option>Application Seen</option>
                         <option>Scheduled For Interview</option>
+                        <option>Scheduled For Assessment / Exam</option>
+                        <option>Assessment / Exam Done</option>
                         <option>1st Interview Done</option>
                         <option>2nd Interview Done</option>
                         <option>3rd Interview Done</option>
@@ -77,35 +79,38 @@ export default {
             app_platform: 'Indeed',
             job_status: 'Waiting For Feedback',
             job_desc: '',
+            userJobs: []
+            
         }
     },
     methods: {
-    submitForm() {
-      axios.post('/api/jobs', {
-        application_date: new Date(),
-        company_name: this.company_name,
-        job_title: this.job_title,
-        job_location: this.job_location,
-        job_type: this.job_type,
-        app_platform: this.app_platform,
-        job_status: this.job_status,
-        job_desc: this.job_desc
-      })
-      .then(response => {
-        // handle success response
-        Swal.fire({
-            title: 'Success!',
-            text: 'Job Added Successfully',
-            icon: 'success',
-            confirmButtonText: 'Okay'
+        submitForm() {
+        axios.post('/api/jobs', {
+            application_date: this.application_date,
+            company_name: this.company_name,
+            job_title: this.job_title,
+            job_location: this.job_location,
+            job_type: this.job_type,
+            app_platform: this.app_platform,
+            job_status: this.job_status,
+            job_desc: this.job_desc
         })
-        return
-      })
-      .catch(error => {
-        // handle error response
-        console.error(error);
-      });
-     }
+        .then(response => {
+            // handle success response
+            Swal.fire({
+                title: 'Success!',
+                text: 'Job Added Successfully',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            })
+            window.location.reload();
+            return
+        })
+        .catch(error => {
+            // handle error response
+            console.error(error);
+        });
+        },
     }
 
 }

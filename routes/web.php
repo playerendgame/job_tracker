@@ -22,8 +22,8 @@ use App\Http\Controllers\Controller;
 // });
 
 
-Route::get('/', [Controller::class, 'index']);
-Route::get('/dashboard', [Controller::class, 'dashboard']);
+Route::get('/', [Controller::class, 'index'])->name('login');
+Route::get('/dashboard', [Controller::class, 'dashboard'])->middleware('auth');
 
 Route::post('/login', [UsersController::class, 'login']);
 Route::post('/logout', [UsersController::class, 'logout']);
@@ -32,5 +32,6 @@ Route::post('/api/jobs', [JobsController::class, 'store']);
 Route::get('/fetch/user/jobs', [JobsController::class, 'getUserJobs']);
 Route::get('/fetch/loggedin/user', [UsersController::class, 'fetchLoggedInUser']);
 Route::post('/update/jobs/{id}', [JobsController::class, 'update']);
+Route::delete('/delete/jobs/{id}', [JobsController::class, 'delete']);
 
 
