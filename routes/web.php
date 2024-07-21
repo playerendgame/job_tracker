@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\Controller;
 
 
@@ -27,6 +28,9 @@ Route::get('/dashboard', [Controller::class, 'dashboard']);
 Route::post('/login', [UsersController::class, 'login']);
 Route::post('/logout', [UsersController::class, 'logout']);
 Route::post('/register', [UsersController::class, 'store']);
-
+Route::post('/api/jobs', [JobsController::class, 'store']);
+Route::get('/fetch/user/jobs', [JobsController::class, 'getUserJobs']);
+Route::get('/fetch/loggedin/user', [UsersController::class, 'fetchLoggedInUser']);
+Route::post('/update/jobs/{id}', [JobsController::class, 'update']);
 
 

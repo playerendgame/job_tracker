@@ -35,6 +35,8 @@ Vue.component('login-component', require('./components/LoginComponent.vue').defa
 Vue.component('register-component', require('./components/RegisterComponentModal.vue').default);
 Vue.component('job-modal-component', require('./components/AddJobComponentModal.vue').default);
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue').default);
+Vue.component('update-job-component', require('./components/UpdateJobComponentModal.vue').default);
+Vue.component('view-job-details-component', require('./components/ViewJobDetailsComponentModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

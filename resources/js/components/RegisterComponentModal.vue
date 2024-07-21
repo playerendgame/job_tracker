@@ -1,5 +1,8 @@
 <template>
    <b-modal id="register-modal" title="Register" hide-footer hide-header>
+        <header class="pt-2">
+            <span class="h4">Add Job Information</span>
+        </header>
         <div class="row">
             <div class="name-input">
                 <input class="form-control" type="text" placeholder="Enter Name" v-model="name">

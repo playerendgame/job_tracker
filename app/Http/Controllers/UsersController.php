@@ -34,6 +34,17 @@ class UsersController extends Controller
 
     }
 
+    public function fetchLoggedInUser()
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            return response()->json(['message' => 'Logged in user', 'user' => $user->name], 200);
+        } else {
+            return response()->json(['message' => 'No logged in user'], 401);
+        }
+    }
+        
+
     public function login(Request $request){
 
         $validator = Validator::make($request->all(), [
